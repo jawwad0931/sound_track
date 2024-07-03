@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2024 at 07:40 PM
+-- Generation Time: Jul 03, 2024 at 10:25 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -49,6 +49,20 @@ INSERT INTO `categories` (`id`, `year`, `artist`, `album`, `genre`, `image_path`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `message` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `music`
 --
 
@@ -71,7 +85,8 @@ CREATE TABLE `music` (
 --
 
 INSERT INTO `music` (`id`, `name`, `artist`, `album`, `year`, `genre`, `language`, `description`, `file_path`, `created_at`, `user_id`) VALUES
-(3, 'hafeez', 'ww1', 'qw', 123, 'w', 'ad', 'fgdf', 'uploads/music/short-5-209448.mp3', '2024-07-02 07:12:36', NULL);
+(3, 'hafeez', 'ww1', 'qw', 123, 'w', 'ad', 'fgdf', 'uploads/music/short-5-209448.mp3', '2024-07-02 07:12:36', 0),
+(10, 'hafeez', 'ww1', 'teri meri', 123, 'we', '214', 'sd', 'uploads/music/short-5-209448.mp3', '2024-07-03 19:48:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -172,6 +187,12 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `music`
 --
 ALTER TABLE `music`
@@ -211,10 +232,16 @@ ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `music`
 --
 ALTER TABLE `music`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `reviews_ratings`
